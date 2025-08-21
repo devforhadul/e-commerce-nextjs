@@ -1,4 +1,6 @@
 "use client";
+
+import { Button } from '@heroui/button';
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
@@ -12,7 +14,8 @@ export default function Navbar() {
         <nav className='shadow-sm'>
             <div className='w-11/12 mx-auto'>
                 <div className='flex justify-between items-center py-3'>
-                    <div><h4 className='text-lg md:text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-red-500'>Creative Shop</h4></div>
+                    <div><Link href={'/'}>
+                        <h4 className='text-lg md:text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-red-500'>Creative Shop</h4></Link></div>
                     <menu className='hidden md:block'>
                         <ul className='flex gap-3 items-center text-lg'>
                             <li><Link href={'/'}>Home</Link></li>
@@ -24,9 +27,13 @@ export default function Navbar() {
                         {data?.user?.email} <br />
                         {
                             data ? (
-                                <button onClick={() => signOut()} className='py-2 px-4 bg-sky-600 rounded-sm text-white cursor-pointer'>LogOut</button>
+                                // <Button onClick={() => signOut()} color="primary">Button</Button>
+                                
+                                <button className='py-2 px-4 bg-sky-600 rounded-sm text-white cursor-pointer'>LogOut</button>
                             ) : (
+                                // <CircleUser />
                                 <button onClick={() => signIn()} className='py-2 px-4 bg-sky-600 rounded-sm text-white cursor-pointer'>Login</button>
+                                // <Button onClick={() => signIn()} color="primary">Button</Button>
                             )
                         }
                     </div>

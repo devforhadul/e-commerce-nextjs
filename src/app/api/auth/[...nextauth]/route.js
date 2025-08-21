@@ -13,7 +13,7 @@ const handler = NextAuth({
       credentials: {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
-        password: { label: "Email", type: "email" }
+        email: { label: "Email", type: "email" }
       },
       async authorize(credentials, req) {
         console.log(credentials);
