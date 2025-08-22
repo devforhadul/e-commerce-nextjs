@@ -1,9 +1,10 @@
 'use client';
-import React from 'react'
+
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProductCard({product}) {
+export default function TopProductCard({product}) {
+    
     return (
         <div className='mb-5'>
             <div className="w-full bg-gray-100 rounded-md  mb-3">
