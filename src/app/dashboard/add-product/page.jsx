@@ -1,7 +1,10 @@
+import ProductAdd from '@/components/form/ProductAddForm'
 import React from 'react'
 
 export default function AddProduct() {
   return (
-    <div>Add product</div>
+    <div className=''>
+      <ProductAdd />
+    </div>
   )
 }

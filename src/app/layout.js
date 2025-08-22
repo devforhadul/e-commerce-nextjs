@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import NextauthSessionProvider from "@/providers/NextauthSessionProvider";
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
           <main className="w-11/12 mx-auto">
             {children}
           </main>
+          <Footer/>
         </body>
       </NextauthSessionProvider>
     </html>

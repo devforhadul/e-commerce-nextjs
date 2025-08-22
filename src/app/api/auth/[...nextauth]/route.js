@@ -1,9 +1,10 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import GoogleProvider from "next-auth/providers/google";
 
-const handler = NextAuth({
+const options = {
   providers: [
-    CredentialsProvider({
+    /* CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
       name: 'Credentials',
       // The credentials is used to generate a suitable form on the sign in page.
@@ -37,8 +38,20 @@ const handler = NextAuth({
         // Return null if user data could not be retrieved
         return null
       }
-    })
-  ]
-})
+    }), */
+    GoogleProvider({
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    
+  })
+  ],
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return "/products";
+    },
+  },
+}
+
+const handler = NextAuth(options)
 
 export { handler as GET, handler as POST }
